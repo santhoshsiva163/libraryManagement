@@ -1,0 +1,97 @@
+<app-loading-spinner *ngIf="!showSpinner"></app-loading-spinner>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pageTitle">Add Books Using Google ISBN Number</div>
+    </div>
+    <div class="col-md-12">
+      <form [formGroup]="addISBNBookForm" (ngSubmit)="addIsbnformSubmit()">
+        <div class="form-group formContainer">
+          <div class="col-md-4">Please type the ISBN Code to Search
+            <br />
+            <p>(13digit)<br />( example : 9781603092661 )</p>
+          </div>
+          <div class="col-md-8">
+            <input type="text" value='' placeholder="9781603092661" formControlName="isbnCode" class="form-control" [ngClass]="{ 'is-invalid': addisbnBookFormStatus && addISBNBookObj.isbnCode.errors }" />
+            <div *ngIf="addisbnBookFormStatus && addISBNBookObj.isbnCode.errors">
+              <div *ngIf="addISBNBookObj.isbnCode.errors.required">
+                ISBN Code is required.
+              </div>
+              <div *ngIf="addISBNBookObj.isbnCode.errors.minLength">
+                Minimum 13 characters are required for ISBN Code.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-md-offset-4">
+            <button type="submit">Get Book Details</button>
+          </div>
+      </form>
+    </div>
+    <div class="col-md-12">
+      <div *ngIf="displayData">
+        <h3>Book Details Found</h3>
+        <hr />
+        <div class="row" class="bookDetailFoundCntr">
+          <div class="col-xs-5 bookDetailFoundImgCntr">
+            <div class="col-xs-12">
+              <img [src]="addToBookData.imageURL" alt="{{ addToBookData.title }}" class="img-responsive" style="max-height: 200px;">
+            </div>
+          </div>
+          <div class="col-xs-1">
+            <div class="bookDetailFoundVR"></div>
+          </div>
+          <div class="col-xs-6">
+            <div class="col-xs-12 bookDetailFoundDtlCntr">
+              <div class="bookDetailFoundDtlCntrTxt">
+                <h5>Book Id :</h5> {{bookCount}}
+              </div>
+            </div>
+            <div class="col-xs-12 bookDetailFoundDtlCntr">
+              <div class="bookDetailFoundDtlCntrTxt">
+                <h5>Book Title :</h5>{{addToBookData.title | uppercase}}
+              </div>
+            </div>
+            <div class="col-xs-12 bookDetailFoundDtlCntr">
+              <div class="bookDetailFoundDtlCntrTxt">
+                <h5>Author :</h5>{{addToBookData.author}}
+              </div>
+            </div>
+            <div class="col-md-12 bookDetailFoundDtlCntr">
+              <div class="bookDetailFoundDtlCntrTxt">
+                <h5>ISBN :</h5> {{addToBookData.isbnBook}}
+              </div>
+            </div>
+            <div class="col-md-12 bookDetailFoundDtlCntr">
+              <div class="bookDetailFoundDtlCntrTxt">
+                <h5>Stock :</h5> {{addToBookData.stock}}
+              </div>
+            </div>
+            <div class="col-md-12 bookDetailFoundDtlCntr">
+              <div class="bookDetailFoundDtlCntrTxt">
+                <h5>Location :</h5> {{addToBookData.location}}
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 bookDetailFoundDtlCntr">
+            <p>Description: {{addToBookData.desc}}</p>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="btn-group">
+              <button type="button" class="genric-btn info radius" (click)="onAdd()">
+                Add Book
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="noRecordDetail">
+        {{noRecordFoundTxt}}
+      </div>
+    </div>
+  </div>
+</div>

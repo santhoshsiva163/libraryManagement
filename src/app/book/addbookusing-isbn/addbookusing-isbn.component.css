@@ -1,0 +1,42 @@
+.bookDetailFoundCntr {
+    border: 1px solid rgba(204, 204, 204, 0.2);
+    float: left;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px 0.1px #ccc;
+    margin-bottom: 15px; 
+}
+.bookDetailFoundImgCntr img {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-left: 25%;
+}
+.bookDetailFoundVR {
+    min-height: 30vh;
+    border-left: 1px solid #ccc;
+}
+.bookDetailFoundDtlCntr {
+
+}
+.bookDetailFoundDtlCntrTxt {
+    line-height: 38px;
+    border-bottom: 1px solid #eee;
+}
+.bookDetailFoundDtlCntrTxt h5 {
+    display: inline-block;
+    float: left;
+    margin: 10px 30px 10px 0px;
+}
+.formContainer{
+    margin-bottom:10px;
+    float:left;
+    width:100%
+}
+.pageTitle {
+    font-weight: 400;
+    font-size: 22px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>LbmsProject</title>
+  <base href="/">
+  <!-- Meta Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Meta Description -->
+  <meta name="description" content="">
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>Library Management Project</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+</head>
+
+<body>
+  <app-root></app-root>
+  <script src="assets/js/jquery-2.2.4.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  
+  <script type="text/javascript">
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        $('.navbar-default').addClass('header-scrolled');
+        $('.navbar-brand span').css('color', '#f73b1b');
+        $("#header").css('background-color', '#fff');
+      } else {
+        $('.navbar-default').removeClass('header-scrolled');
+        $('.navbar-brand span').css('color', '#ffffff');
+        $("#header").css('background-color', 'transparent');
+      }
+    });
+    $(document).ready(function () {
+      $(".navbar-nav li a").click(function (event) {
+        $(".navbar-collapse").collapse('hide');
+      });
+    });
+  </script>
+</body>
+
+</html>

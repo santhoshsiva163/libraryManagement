@@ -1,0 +1,4 @@
+
+<app-login  *ngIf="!this.userService.loginStatus"></app-login>
+<app-header *ngIf="this.userService.loginStatus"></app-header>
+<router-outlet *ngIf="this.userService.loginStatus"></router-outlet>

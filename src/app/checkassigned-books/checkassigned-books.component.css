@@ -1,0 +1,18 @@
+.pageTitle {
+    font-weight: 400;
+    font-size: 22px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+.checkTableView {
+    width: 100%;
+    float: left;
+    overflow: auto;
+}
+.checkTableView table th {
+    background-color: #707474;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}

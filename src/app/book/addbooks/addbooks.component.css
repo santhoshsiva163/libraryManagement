@@ -1,0 +1,25 @@
+.formContainer{
+    margin-bottom:10px;
+    float:left;
+    width:100%
+}
+.mrRgt15{
+    margin-right:15px;
+}
+.genric-btn.primary {
+    color: #fff;
+    background: #f53f51;
+    border: 1px solid transparent;
+}
+.pageTitle {
+    font-weight: 400;
+    font-size: 22px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+.goback {
+    float: left;
+    width: 100%;
+    height: auto;
+}

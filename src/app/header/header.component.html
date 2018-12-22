@@ -1,0 +1,30 @@
+<div id="header" class="container myNavcntr">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="javascript:void(0)">
+          <img class="logo" src="../../assets/img/bookmainlogo.png" alt="Book" />
+          <span>Library Book</span>
+        </a>
+        <a href="javascript:void(0)" class="headerusername" *ngIf="userdetails">Welcome {{userdetails.addUserName}} <!--- {{userdetails.userType}}--></a>
+      </div>
+      <div id="navbar2" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li *ngIf="userdetails">{{userdetails.addUserName}} - {{userdetails.userType}}</li> -->
+          <li><a routerLink="/Dashboard" routerLinkActive='active'>Home</a></li>
+          <!-- <li><a routerLink="/AddBook" routerLinkActive="active">Add Books</a></li> -->
+          <li *ngIf="userservice.IsAdmin"><a routerLink="/AddBookISBN" routerLinkActive="active">Add Books Using ISBN</a></li>
+          <li *ngIf="userservice.IsAdmin"><a routerLink="/CheckAssignedBooks" routerLinkActive="active">Check Assigned Books</a></li>
+          <li *ngIf="userservice.IsAdmin"><a routerLink="/AddUser" routerLinkActive="active">Add User</a></li>
+          <li><a routerLink="/login" routerLinkActive="active" (click)="logOut()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

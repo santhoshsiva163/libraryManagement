@@ -1,0 +1,17 @@
+.addUserCntr {
+    width:50%;
+    margin:0px auto;
+    height:auto;
+}
+.pageTitle {
+    font-weight: 400;
+    font-size: 22px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+.checkbox, .radio {
+    position: relative;
+    display: inline-block !important;
+    margin: 10px !important;
+}

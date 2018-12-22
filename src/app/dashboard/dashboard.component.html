@@ -1,0 +1,47 @@
+<app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+<div class="container" *ngIf="!showSpinner" >
+	<div class="row">
+			
+			<!-- <p *ngIf="userdetails">{{userdetails.addUserName}} - {{userdetails.userType}}</p> -->
+		<div class="col-md-9 col-xs-12">
+			<form class="form-group">
+				<input class="form-control col-md-6 searchBox" type="search" [(ngModel)]="searchData"
+				placeholder="Search by Book Name or Author Name" (click)="this.searchData=''" name="searchByName" />
+				<!-- <button type="button" class="btn btn-primary" (click)="this.searchData=''" searchFilterFN(libraryBooks)>Search</button> -->
+			</form>
+		</div>
+		<div class="col-md-3 text-rigth col-xs-12 addbookMobView" *ngIf="userservice.IsAdmin">
+			<button (click)="addnewBook()" class="genric-btn primary radius"><i class="fa fa-book"></i> &nbsp;  &nbsp; Add Book</button>
+		</div>
+		<hr/>
+		<div class="col-md-8">	
+			<ul class="dashboardBookTileUL">
+				<ng-container *ngFor="let bookDetails of libraryBooks">
+					<li *ngIf="searchFilterFN(bookDetails)" (click)="tileDetailedView(bookDetails)" class="dashboardBookTileLI">
+						<div class="tileCntr">
+							<div class="titleImgCntr">
+								<img src="{{bookDetails.imageURL}}" alt="Book Image" />
+							</div>
+							<div class="tile-bookTitle">{{bookDetails.title}}</div>
+							<div class="tile-bookAuthor">{{bookDetails.author}}</div>
+							<!-- <div class="tile-bookCategory">{{bookDetails.category}}</div> -->
+							<div class="align-right booklistBtncntr">
+								<button type="button" (click)="tileDetailedView(bookDetails)" ngbTooltip="View details of this book" placement="top" class="viewDetailsBtn">View Details</button>
+							</div>
+							<div class="align-right booklistBtncntr" *ngIf="!userservice.IsAdmin">
+								<button class="assignBtn" ngbTooltip="Assign this book" placement="top" *ngIf="!checkstatus(bookDetails)" (click)="assign(bookDetails)">Assign</button>
+								<button class="unAssignBtn" ngbTooltip="Un-Assign this book" placement="top"  *ngIf="checkstatus(bookDetails)" (click)="unassign(bookDetails)">UnAssign</button>								
+							</div>
+						</div>
+					</li>
+				</ng-container>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<app-view-details *ngIf="detailClicked"></app-view-details>
+			<div class="detailDefaultView" *ngIf="!detailClicked">Select the book to display the details </div>
+		</div>
+	</div>
+</div>
+
+

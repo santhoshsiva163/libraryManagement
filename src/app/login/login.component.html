@@ -1,0 +1,87 @@
+<!-- <div class="container">
+	<div class="row">
+		<div class="col-md-5 col-md-offset-3">
+			<form (ngSubmit)="submitLoginForm()" [formGroup]="loginForm">
+				<div class="form-group">
+					<label>Username:</label>
+					<input type="text" formControlName="username" class="form-control" 
+					[ngClass]="{ 'is-invalid': submitStatus && loginFormObj.username.errors }" />
+					<div *ngIf="submitStatus && loginFormObj.username.errors" class="invalid-feedback">
+						<div *ngIf="loginFormObj.username.errors.required">
+							Username is required.
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Password:</label>
+					<input type="password" formControlName="password" class="form-control" 
+					[ngClass]="{ 'is-invalid': submitStatus && loginFormObj.password.errors }" />
+					<div *ngIf="submitStatus && loginFormObj.password.errors" class="invalid-feedback">
+						<div *ngIf="loginFormObj.password.errors.required">
+							Password is required.
+						</div>
+						<div *ngIf="loginFormObj.password.errors.minlength">
+							Password minimum length is 4.
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+ -->
+ <div class="limiter">
+		<div class="container-login100" style="background-image: url('../../assets/img/bookprojectbackdrop.jpg');">
+			<div class="wrap-login100 p-t-80 p-b-30">
+				<form (ngSubmit)="submitLoginForm()" class="login100-form validate-form" [formGroup]="loginForm">
+					<div class="login100-form-avatar">
+						<img src="../../assets/img/bookmainlogo.png" alt="Bookproject">
+					</div>
+
+					<span class="login100-form-title p-t-20 p-b-45">
+						Library Books
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-10">
+						<input type="text" formControlName="username" class="input100" placeholder="Username"
+						[ngClass]="{ 'is-invalid': submitStatus && loginFormObj.username.errors }" />
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user"></i>
+						</span>
+						<div *ngIf="submitStatus && loginFormObj.username.errors" class="invalid-feedback">
+							<div class="error" *ngIf="loginFormObj.username.errors.required">
+								Username is required.
+							</div>
+						</div>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-10">
+						<input class="input100" type="password" formControlName="password" placeholder="Password"
+						[ngClass]="{ 'is-invalid': submitStatus && loginFormObj.password.errors }" />
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock"></i>
+						</span>
+						<div *ngIf="submitStatus && loginFormObj.password.errors" class="invalid-feedback">
+							<div class="error" *ngIf="loginFormObj.password.errors.required">
+								Password is required.
+							</div>
+							<div class="error" *ngIf="loginFormObj.password.errors.minlength">
+								Password minimum length is 4.
+							</div>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn p-t-10">
+						<button type="submit" [disabled]="loginFormObj.valid" class="login100-form-btn">
+							Login
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>

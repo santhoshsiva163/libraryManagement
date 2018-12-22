@@ -1,0 +1,48 @@
+
+<app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+<div class="container" >
+  <div class="row">
+    <div class="col-md-12">
+        <div class="pageTitle">Check Assigned Books by User Level</div>
+      </div>
+    <div class="col-md-12">
+      <form [formGroup]="checkAssignedUserForm">
+        <div class="form-group">
+          <label>Select User</label>
+          
+                <select class="form-control" (change)="selectUsertoDisplayList($event.target.value)" formControlName="user">
+                  <option value="select" value="" selected disabled hidden >Select</option>
+                  <option *ngFor="let user of userlist" [value]="user.addUserName">{{user.addUserName}}</option>
+                </select>
+          
+        </div>
+      </form>
+    </div>
+    <div class="col-md-12 checkTableView">
+      <table class="table table-bordered">
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Issue Date</th>
+          <th>Due Date</th>
+          <th>Return Date</th>
+          <th>Review</th>
+          <th>Rating</th>
+        </tr>
+        <tr *ngFor="let item of this.showdata">
+          <td><img src="{{item.image}}" alt="Book Image" width="50px" height="50px" /></td>
+          <td>{{item.title}}</td>
+          <td>{{item.author}}</td>
+          <td>{{item.issueDate}}</td>
+          <td>{{item.returnDate}}</td>
+          <td>{{item.returnDate}}</td>
+          <td>{{item.review}}</td>
+          <td>{{item.rating}}</td>
+         
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- (change)="selectUsertoDisplayList()" -->

@@ -1,0 +1,72 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="pageTitle">Add User</div>
+		</div>
+		<div class="addUserCntr">
+			<form [formGroup]="addUserform" (ngSubmit)="addUserSubmitform()">
+				<input type="hidden" formControlName="key"/>
+				<div class="form-group">
+					<label>
+						User Name
+					</label>
+					<input type="text" formControlName="addUserName" placeholder="Add User Name" class="form-control" [ngClass]="{ 'is-invalid' : adduserformSubmitStatus && addUserformObj.addUserName.errors }" />
+					<div class="alert alert-danger" *ngIf="adduserformSubmitStatus && addUserformObj.addUserName.errors">
+						<div *ngIf="addUserformObj.addUserName.errors.required">
+							Username is required.
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>
+						Password
+					</label>
+					<input type="password" formControlName="addPassword" placeholder="Add Password" class="form-control" [ngClass]="{ 'is-invalid' : adduserformSubmitStatus && addUserformObj.addPassword.errors }" />
+					<div class="alert alert-danger" *ngIf="adduserformSubmitStatus && addUserformObj.addPassword.errors">
+						<div *ngIf="addUserformObj.addPassword.errors.required">
+							Password is required.
+						</div>
+						<div *ngIf="addUserformObj.addPassword.errors.minlength">
+							Password minimum length should be 4 characters.
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>User Type</label>
+					<div class="radio" *ngFor="let userType of checkUsers">
+						<label>
+							<input type="radio" [value]="userType"
+							formControlName = "userType">{{userType}}
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>
+						Image Url
+					</label>
+					<input type="text" formControlName="userImage" placeholder="Add Your Avatar" class="form-control" [ngClass]="{ 'is-invalid' : adduserformSubmitStatus && addUserformObj.userImage.errors }" />
+					<div class="alert alert-danger" *ngIf="adduserformSubmitStatus && addUserformObj.userImage.errors">
+						<div *ngIf="addUserformObj.userImage.errors.required">
+							User Image is required.
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>
+						Book Limit
+					</label>
+					<input type="text" formControlName="userBookLimit" placeholder="Set User Book Limit" class="form-control" [ngClass]="{ 'is-invalid' : adduserformSubmitStatus && addUserformObj.userBookLimit.errors }" />
+					<div class="alert alert-danger" *ngIf="adduserformSubmitStatus && addUserformObj.userBookLimit.errors">
+						<div *ngIf="addUserformObj.userBookLimit.errors.required">
+							Please provide the no of books limit for this user.
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="genric-btn info radius">Add User</button>
+					<button class="genric-btn primary radius" (click)="adduserCancel()">Cancel</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

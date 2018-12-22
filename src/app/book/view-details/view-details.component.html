@@ -1,0 +1,22 @@
+<div style="float:left;" *ngIf="bookdata">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 viewDetailCntr">
+          <div class="viewDtldCntrHdr">
+              <h2 class="bookDetailsHDR">Book Details</h2>
+              <div *ngIf="userservice.IsAdmin" class="bookDetailsBtnCntr">
+                <button (click)='updateCurrentBookDetail(bookdata)' ><span class="glyphicon glyphicon-edit"></span></button> | 
+                <button (click)='deleteCurrentBookDetail(bookdata)' ><span class="glyphicon glyphicon-trash"></span></button>
+              </div>
+          </div>
+          <div class="detailedBookImg"><img src="{{bookdata.imageURL}}" /></div>
+          <div class="detailedBookTitle">{{bookdata.title}}</div>
+          <div class="detailedBookAuthor">{{bookdata.author}}</div>
+          <div class="detailedBookISBN">{{bookdata.isbnBook}}</div>
+          <div class="detailedBookStock">{{bookdata.stock}}</div>
+          <div class="detailedBookLocation">{{bookdata.location}}</div>
+          <div class="detailedBookDesc">{{bookdata.desc}}</div>
+      </div>
+    </div>
+  </div>
+</div>
